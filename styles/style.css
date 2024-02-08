@@ -38,20 +38,32 @@ body{
         height: 100%;
         border-radius: 25px;
     }
-
-    section{
-        width: 100%;
+    .section-1{
+        border: 2px solid;
+        width: 80%;
+        height: 300px;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
-        
+        padding-top: 5px;
+        padding-left: 20px;
+        gap:30px;
+        border-radius: 10px;
     }
+    .section-2{
+        border: 2px solid;
+        width: 80%;
+        height: 300px;
+        display: flex;
+        flex-direction: row-reverse;
+        padding-top: 5px;
+        padding-right: 20px;
+        gap:30px;
+        border-radius: 10px;
 
+    }
     .card-container{
         border: 1px solid;
-        height: 300px;
-        width: 300px;
+        height:290px;
+        width: 250px;
         box-shadow: 3px 5px 10px;
         background-color: beige;
         border-radius: 25px;
@@ -62,37 +74,34 @@ body{
        transform: scale(1.1);
     }
     article{
+        justify-content: center;
         display: flex;
         flex-wrap: wrap;
         gap: 25px;
         
     }
     
-/*listas de header*/
-    .container{
+/*listas de nav*/
+    .nav-container{
         display: flex;
-        list-style:none;
+        gap: 10px;
         font-size: 1.8em;
-        gap: 30px;
         flex-wrap: wrap;
-        padding: 0;
-        padding-left: 10px;
         justify-content: center;
-        
-    }
-
-    .list-header{
         border: 1px solid;
-        border-radius: 10px;
-        background-color: rgb(17, 17, 17);
+        border-radius: 5px;
+        margin: 15px 35px;
+        background-color: rgb(27, 27, 27);
+    }
+    .p-nav{
         color: aliceblue;
-        padding-right: 5px;
-        padding-left: 5px;
-        
     }
 
-    .list-header:hover{
+    
+
+    .p-nav:hover{
         animation: rotate 0.7s ease-in-out both;
+        cursor:pointer;
 
     }
     @keyframes rotate {
