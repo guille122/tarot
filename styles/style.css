@@ -69,19 +69,20 @@ header .card .star{
     .section-1{
         border: 2px solid;
         width: 80%;
-        height: 300px;
         display: flex;
         padding-top: 5px;
         padding-left: 20px;
+        padding-bottom: 5px;
         gap:30px;
         border-radius: 10px;
         background-color: rgb(214, 214, 214);
         box-shadow: 5px 5px 5px black;
+        flex-wrap: wrap;
+        
     }
     .section-2{
         border: 2px solid;
         width: 80%;
-        height: 300px;
         display: flex;
         flex-direction: row-reverse;
         padding-top: 5px;
@@ -90,16 +91,18 @@ header .card .star{
         border-radius: 10px;
         background-color: rgb(214, 214, 214);
         box-shadow: 5px 5px 5px black;
+        flex-wrap: wrap;
 
     }
     .card-container{
         border: 1px solid;
-        height:290px;
+        height: 290px;
         width: 250px;
         box-shadow: 3px 5px 10px;
         background-color: beige;
         border-radius: 25px;
         transition:transform 1s;
+        
 
     }
     dl{
@@ -133,6 +136,19 @@ header .card .star{
         gap: 25px;
         
     }
+    @media screen and (min-width: 320px) and (max-width:1199px){
+        .section-1 {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .section-2 {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+    }
+    /*fin contenedor galeria */
     
 /*listas de nav*/
     .nav-container{
@@ -149,9 +165,9 @@ header .card .star{
     .p-nav{
         color: aliceblue;
     }
-
-    
-
+    a{
+        text-decoration: none;
+    }
     .p-nav:hover{
         animation: rotate 0.7s ease-in-out both;
         cursor:pointer;
@@ -174,49 +190,80 @@ header .card .star{
         100%{
             transform: rotate(0seg) ;
         }
+    } 
+    .button{
+        position:fixed;
+        right: 20px;
+        bottom: 10px;
+        border-radius: 40px;
+        
     }
+    /* fin  listas de nav */
 
-/*.... */
+/* descripcion */
 
     .container-description{
         
         background-color: rgb(40, 40, 40);
         width: 95%;
         text-align:center;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         color: rgb(194, 191, 187);
         font-family:'Times New Roman', Times, serif;
         letter-spacing: 2px;
         margin-top: 30px;
         margin-left: 15px;
-        
+        border-top-left-radius: 38px;
+        border-bottom-right-radius: 38px;
+        box-shadow: 4px -5px 5px black;
     }
+/* fin descripcion */
 
     /*footer*/
+    
 footer{
     background-color: black;
-
+    
 }
 h4{
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-decoration:underline;
     color: white;
+    
+    
 }
 
+.footer-img{
+    height: 30px;
+    width: 30px;
+}
+.enlace , .enlace-1{
+    display: flex;
+    color: white;
+    align-items: center;
+}
+.enlace-1{
+    padding-right: 60px;
 
-
-
+}
 
 .footer-list{
     display: flex;
-    justify-content: center;
-    gap: 40px;
+    align-items: center;
+    gap: 10px;
     list-style: none;
+    flex-direction: column;
+    color: bisque;
+    padding-right: 30px;
     
 }
-footer p{
+
+.copyright{
     font-size: 1.2em;
     color: white;
     text-align: center;
+    margin-bottom: 0px;
+    display: block;
+
 }
