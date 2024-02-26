@@ -13,8 +13,15 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 136px;
-    background-image: url('../img/background.png');
+    height: 144px;
+    background: radial-gradient(ellipse at bottom, #260c31 0%, #080415 100%);
+}
+
+header canvas{
+    position:absolute;
+    width: 100%;
+    height: 144px;
+    z-index: 0;
 }
 
 header .card{
@@ -26,6 +33,7 @@ header .card{
     background-repeat: no-repeat;
     height: 128px;
     width: 73px;
+    z-index: 1;
 }
 
 header .card label{
