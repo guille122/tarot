@@ -2,7 +2,7 @@
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-
+ 
 let stars = [];
 
 const STAR = new Path2D("M8 4 \
@@ -13,11 +13,10 @@ const STAR = new Path2D("M8 4 \
                         Z")
 
 class Star{
-    constructor(x, y, radio, type, opacity){
+    constructor(x, y, radio, opacity){
         this.x = x;
         this.y = y;
         this.radio = radio;
-        this.type = (type<0.25)? true : false;
         this.opacity = opacity;
     }
 
@@ -37,20 +36,15 @@ class Star{
     
         ctx.fill();
     }
-    
-    updateStar = () => {
-        this.opacity = (this.type)? Math.random() : this.opacity;
-    }
 }
-
-
-
 
 window.addEventListener("resize", () => {
     canvas.width = window.innerWidth
     canvas.height = 136;
 
     createStars();
+
+    draw();
 });
 
 window.addEventListener("load", () => {
@@ -64,11 +58,11 @@ window.addEventListener("load", () => {
 
 const createStars = () => {
     stars = [];
+    
     for(let i=0; i<canvas.width >> 4 ; i++){
         stars.push(new Star(Math.random() * canvas.width, 
                             Math.random() * canvas.height,
-                            Math.random() * 4,
-                            Math.random(),
+                            Math.random() * 5,
                             Math.random()));
     }
 }
@@ -79,17 +73,4 @@ const draw = () => {
     for(let star of stars){
         star.drawStar();
     }
-
-    requestAnimationFrame(drawLoop);
-}
-
-const drawLoop = () => {
-
-    for(let star of stars.filter((star) => {return star.type})){
-        ctx.clearRect(star.x-star.radio, star.y, star.x+(star.radio*2), star.y+(star.radio*2));
-        star.updateStar();
-        star.drawStar();
-    }
-
-    requestAnimationFrame(drawLoop);
 }
