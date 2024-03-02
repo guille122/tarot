@@ -56,10 +56,23 @@ window.addEventListener("load", () => {
     draw();
 });
 
+window.addEventListener("scroll", () => {
+
+   if(window.scrollY > 144)
+        return;
+
+    for(const star of stars){
+        star.x += (star.x <= canvas.width)? Math.cos(0.05) * star.radio : -canvas.width;
+        star.y += (star.y <= canvas.height)? Math.sin(0.05) * star.radio : -canvas.height;
+    }
+
+    draw();
+});
+
 const createStars = () => {
     stars = [];
     
-    for(let i=0; i<canvas.width >> 4 ; i++){
+    for(let i=0; i<100; i++){
         stars.push(new Star(Math.random() * canvas.width, 
                             Math.random() * canvas.height,
                             Math.random() * 5,
