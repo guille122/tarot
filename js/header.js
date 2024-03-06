@@ -22,6 +22,7 @@ class Star{
 
     drawStar = () => {
         ctx.fillStyle = `rgba(255,255,255, ${this.opacity})`;
+        ctx.strokeStyle = `rgba(255, 255, 255, 0.1)`;
         const x = this.x;
         const y = this.y;
         const radio = this.radio;
@@ -33,7 +34,10 @@ class Star{
             ctx.bezierCurveTo(x, y+radio*2, x, y+radio, x-radio, y+radio);
             ctx.bezierCurveTo(x-radio, y+radio, x, y+radio, x, y);
         ctx.closePath();
-    
+
+        ctx.filter = "blur(1px)";
+        ctx.stroke();
+        ctx.filter = "none";
         ctx.fill();
     }
 }
@@ -51,6 +55,8 @@ window.addEventListener("load", () => {
     canvas.width = window.innerWidth
     canvas.height = 136;
 
+    document.getElementById('up').hidden = true;
+
     createStars();
 
     draw();
@@ -58,8 +64,12 @@ window.addEventListener("load", () => {
 
 window.addEventListener("scroll", () => {
 
-   if(window.scrollY > 144)
+   if(window.scrollY > 144){
+        document.getElementById('up').hidden = false;
         return;
+    }else{
+        document.getElementById('up').hidden = true;
+    }
 
     for(const star of stars){
         star.x += (star.x <= canvas.width)? Math.cos(0.05) * star.radio : -canvas.width;
